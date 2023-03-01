@@ -162,6 +162,7 @@
             this.btnSelectFirst.TabIndex = 34;
             this.btnSelectFirst.Text = "Select First";
             this.btnSelectFirst.UseVisualStyleBackColor = true;
+            this.btnSelectFirst.Click += new System.EventHandler(this.btnSelectFirst_Click);
             // 
             // textBox1
             // 

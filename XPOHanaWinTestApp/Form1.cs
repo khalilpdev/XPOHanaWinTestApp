@@ -1,7 +1,9 @@
 ﻿using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using System;
+using System.Linq;
 using System.Windows.Forms;
+using XPOHanaWinTestApp.Models;
 
 namespace XPOHanaWinTestApp
 {
@@ -47,7 +49,28 @@ namespace XPOHanaWinTestApp
 
         private void btnExecutarSelectAny_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var result = _session.Query<SysObjects>().Any();
+                txtResult.Text = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void btnSelectFirst_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = _session.Query<SysObjects>().First();
+                txtResult.Text = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
